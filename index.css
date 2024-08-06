@@ -1,0 +1,318 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: whitesmoke;
+}
+.chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #724ae8;
+  transition: all 0.2s ease;
+}
+.headers{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* background: url(https://www.sietghogaon.org/uploads/homephotos/Main-Building.jpg)center; */
+  background: linear-gradient(to bottom left, rgba(255,0,0,0), rgb(210, 118, 118));
+  
+  
+}
+.container
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px;
+}
+
+.logo-a{
+
+  margin: 0px 30px;
+  font-weight: 600;
+  color: rgb(31, 173, 216);
+  padding: 5px;
+}
+
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+.chatbot-toggler span {
+  color: #fff;
+  position: absolute;
+}
+.chatbot-toggler span:last-child,
+body.show-chatbot .chatbot-toggler span:first-child  {
+  opacity: 0;
+}
+body.show-chatbot .chatbot-toggler span:last-child {
+  opacity: 1;
+}
+.chatbot {
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+  width: 350px;
+  /* height: 500px; */
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  transition: all 0.5s ease;
+}
+body.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.chatbot header {
+  padding: 14px 0;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: #724ae8;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.chatbot header span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+header h2 {
+  font-size: 1.1rem;
+}
+.chatbot .chatbox {
+  overflow-y: auto;
+  height: 410px;
+  padding: 30px 20px 100px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
+  width: 6px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 25px;
+}
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+.chatbox .chat {
+  display: flex;
+  list-style: none;
+}
+.chatbox .outgoing {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+.chatbox .incoming span {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  cursor: default;
+  text-align: center;
+  line-height: 25px;
+  align-self: flex-end;
+  background: #724ae8;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
+.chatbox .chat p {
+  white-space: pre-wrap;
+  padding: 12px 16px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  color: #fff;
+  font-size: 0.7rem;
+  background: #724ae8;
+}
+.chatbox .incoming p {
+  border-radius: 10px 10px 10px 0;
+}
+.chatbox .chat p.error {
+  color: #721c24;
+  background: #f8d7da;
+}
+.chatbox .incoming p {
+  color: #000;
+  background: #f2f2f2;
+}
+.chatbot .chat-input {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 3px 20px;
+  border-top: 1px solid #ddd;
+}
+.chat-input textarea {
+  height: 55px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 180px;
+  padding: 15px 15px 15px 0;
+  font-size: 0.7rem;
+}
+.chat-input span {
+  align-self: flex-end;
+  color: #724ae8;
+  cursor: pointer;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  font-size: 1rem;
+}
+.chat-input textarea:valid ~ span {
+  visibility: visible;
+}
+
+@media (max-width: 490px) {
+  .chatbot-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+  .chatbot {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chatbot .chatbox {
+    height: 90%;
+    padding: 25px 15px 100px;
+  }
+  .chatbot .chat-input {
+    padding: 5px 15px;
+  }
+  .chatbot header span {
+    display: block;
+  }
+}
+.footer
+{
+  background-color: #002147;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #ddd;
+  margin-top: 30px;
+}
+.address
+{
+  padding: 10px;
+  margin-top: 40px;
+}
+.address p a{
+  text-decoration: none;
+  color: rgb(202, 109, 109);
+}
+.address p a:hover{
+  color: aqua;
+}
+.maps{
+  margin-top:30px;
+}
+.maps iframe{
+  height: 350px;
+  width: 500px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 30px #245792;
+}
+.header{
+  height: 80px;
+  width: 100%;
+  background:linear-gradient(to bottom left, rgba(255,0,0,0), rgb(210, 118, 118));;
+  color: whitesmoke;
+  padding: 20px;
+}
+.foot{
+  height: 70px;
+  background-color: #001a39;
+  display: flex;
+  flex-direction: row;
+  color: whitesmoke;
+  padding: 30px;
+  justify-content: space-evenly ;
+
+}
+.head1
+{
+  background: linear-gradient(to right, #001a39, rgb(240, 237, 237));
+  color: whitesmoke;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 250px;
+}
+.section{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0px ;
+}
+.pointer{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* height: 200px; */
+  margin: 30px 0px 0px 0px  ;
+  float: right;
+  /* position: fixed; */
+}
+.pointer h6 span{
+  width: 50px;
+  float: right;
+  margin-right: 70px;
+}
+.head1 h1{
+  text-shadow: 0 2px 10px #79a06d, 
+  -1px 3px 10px #82ad75, 
+  -2px 5px 10px #8ebf80;
+  font-size: 70px;
+}
+.how:hover{
+  transform: translate(0, -2px);
+  transform: scale(1.1, 1.1);
+}
+.head1 h6{
+  font-size: 25px;
+}
+
+
+/* 2px 2px 20px rgb(241, 124, 29),2px 2px 10px rgb(11, 12, 2) */
